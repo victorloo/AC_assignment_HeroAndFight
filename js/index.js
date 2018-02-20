@@ -24,11 +24,25 @@ class BaseCharacter {
   die() {
     this.alive = false;
   }
+
+  updateHtml(hpElement, hurtElement) {
+    hpElement.textContent = this.hp;
+    hurtElement.style.width = (100 - this.hp / this.maxHp * 100) + "%";
+  }
 }
 
 class Hero extends BaseCharacter {
   constructor(name, hp, ap) {
     super(name, hp, ap);
+
+    this.element = document.getElementById("hero-image-block");
+    this.hpElement = document.getElementById("hero-hp");
+    this.maxHpElement = document.getElementById("hero-max-hp");
+    this.hurtElement = document.getElementById("hero-hp-hurt");
+
+    this.hpElement.textContent = this.hp;
+    this.maxHpElement.textContent = this.maxHp;
+
     console.log(" 召喚英雄 " + this.name + " !");
   }
 
@@ -36,11 +50,25 @@ class Hero extends BaseCharacter {
     var damage = Math.random() * (this.ap / 2) + (this.ap / 2);
     super.attack(character, Math.floor(damage));
   }
+
+  getHurt(damage) {
+    super.getHurt(damage);
+    this.updateHtml(this.hpElement, this.hurtElement);
+  }
 }
 
 class Monster extends BaseCharacter {
   constructor(name, hp, ap) {
     super(name, hp, ap);
+
+    this.element = document.getElementById("monster-image-block");
+    this.hpElement = document.getElementById("monster-hp");
+    this.maxHpElement = document.getElementById("monster-max-hp");
+    this.hurtElement = document.getElementById("monster-hp-hurt");
+
+    this.hpElement.textContent = this.hp;
+    this.maxHpElement.textContent = this.maxHp;
+
     console.log(" 遇到怪物 " + this.name + " !");
   }
 
@@ -48,7 +76,13 @@ class Monster extends BaseCharacter {
     var damage = Math.random() * (this.ap / 2) + (this.ap / 2);
     super.attack(character, Math.floor(damage));
   }
+
+  getHurt(damage) {
+    super.getHurt(damage);
+    this.updateHtml(this.hpElement, this.hurtElement);
+  }
 }
 
+//測試是否成功創建物件
 var hero = new Hero("Bernard", 130, 30);
 var monster = new Monster("Skeleton", 130, 10);
