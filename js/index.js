@@ -122,7 +122,7 @@ function endTurn() {
   rounds--;
   document.getElementById("round-num").textContent = rounds;
   if (rounds < 1) {
-    //遊戲結束
+    finish();
   }
 }
 
@@ -147,13 +147,24 @@ function heroAttack() {
         endTurn();
         //判斷英雄是否死亡
         if (hero.alive == false) {
-          //遊戲結束
+          finish();
         } else {
           document.getElementsByClassName("skill-block")[0].style.display = "block";
         }
       }, 500);
     } else {
-      //如果怪獸已經死亡，結束遊戲
+      finish();
     }
   }, 1100);
+}
+
+//遊戲結束
+function finish() {
+  var dialog = document.getElementById("dialog");
+  dialog.style.display = "block";
+  if (monster.alive == false) {
+    dialog.classList.add("win");
+  } else {
+    dialog.classList.add("lose");
+  }
 }
