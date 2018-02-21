@@ -229,3 +229,15 @@ function finish() {
     dialog.classList.add("lose");
   }
 }
+
+//增加鍵盤驅動
+document.onkeyup = function(event) {
+  var key = String.fromCharCode(event.keyCode);
+  if (key == "A") {
+    heroAttack();
+    //按A發動攻擊
+  } else if (key == "D") {
+    heroHeal();
+    //按D啟動治療
+  }
+}
