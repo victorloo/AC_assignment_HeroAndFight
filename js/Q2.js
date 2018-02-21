@@ -82,6 +82,24 @@ class Hero extends BaseCharacter {
       this.hp = this.maxHp;
     }
     this.updateHtml(this.hpElement, this.hurtElement);
+
+    //增加特效和治療數字
+    var _this = this;
+    var i = 1;
+
+    _this.id = setInterval(function () {
+      if (i == 1) {
+        _this.element.getElementsByClassName("heal-text")[0].classList.add("healed");
+        _this.element.getElementsByClassName("heal-text")[0].textContent = heal;
+      }
+      i++;
+      //取消特效和治療數字
+      if (i > 8) {
+        _this.element.getElementsByClassName("heal-text")[0].classList.remove("healed");
+        _this.element.getElementsByClassName("heal-text")[0].textContent = "";
+        clearInterval(_this.id);
+      }
+    }, 50);
   }
 }
 
@@ -167,7 +185,7 @@ function heroHeal() {
         document.getElementsByClassName("skill-block")[0].style.display = "block";
       }
     }, 500);
-  }, 1100);
+  }, 600);
 }
 
 //開始戰鬥流程

@@ -140,6 +140,23 @@
   bottom: 150px;
 }
 
+/*增加heal特效*/
+#hero-image-block .character-block .heal-text {
+  position: absolute;
+  font-size: 60px;
+  color: #00CC66;
+  width: 100%;
+  left: 0px;
+  bottom: 50px;
+  font-family: "Contrail One";
+  transition: bottom 500ms;
+}
+
+#hero-image-block .character-block .heal-text.healed {
+  bottom: 150px;
+}
+/*heal特效結束*/
+
 #hero-image-block .skill-block {
   position: relative;
 }
