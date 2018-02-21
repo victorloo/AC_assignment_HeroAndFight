@@ -5,65 +5,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hero Project</title>
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Contrail One">
+  <title>Assignment Index</title>
+  <style>
+    #screen {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 0px auto;
+      border: 10px solid #3399FF;
+    }
+    table {
+      position: relative;
+      widows: 600px;
+      height: 300px;
+      margin: 0px auto;
+    }
+  </style>
 </head>
 
 <body>
   <div id="screen">
-    <div id="header">
-      <div class="hp-block hero-hp-block">
-        <div class="hp-bar">
-          <div id="hero-hp-hurt"></div>
-        </div>
-        <div class="hp-text">
-          <span id="hero-hp">130</span> /
-          <span id="hero-max-hp">130</span>
-        </div>
-      </div>
-      <div id="round-num">10</div>
-      <div class="hp-block monster-hp-block">
-        <div class="hp-bar">
-          <div id="monster-hp-hurt"></div>
-        </div>
-        <div class="hp-text">
-          <span id="monster-hp">130</span> /
-          <span id="monster-max-hp">130</span>
-        </div>
-      </div>
-    </div>
-    <div id="plane">
-      <div id="hero-image-block">
-        <div class="skill-block">
-          <img src="images/skill.png" alt="skill" id="skill" class="skill-image">
-        </div>
-        <div class="character-block">
-          <img src="images/hero.png" alt="hero" class="character-image hero-image">
-          <img src="" alt="effect" class="effect-image" style="display:none;">
-          <span class="hurt-text"></span>
-        </div>
-      </div>
-      <div id="monster-image-block">
-        <div class="character-block">
-          <img src="images/monster.png" alt="monster" class="character-image">
-          <img src="" alt="effect" class="effect-image" style="display:none;">
-          <span class="hurt-text"></span>
-        </div>
-      </div>
-      <div id="dialog">
-        <div class="win-dialog">
-          <h2> 獲得勝利！！ </h2>
-          <button onclick="location.reload();"> 再玩一次？ </button>
-        </div>
-        <div class="lose-dialog">
-          <h2> 你輸掉了！ </h2>
-          <button onclick="location.reload();"> 再次挑戰？ </button>
-        </div>
-      </div>
-    </div>
+    <table>
+      <tr>
+        <th>Assignment</th>
+      </tr>
+      <tr>
+        <td>
+          <a href="assignment/text-practice.html">教案</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="assignment/Q1.html">Q1</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="assignment/Q2.html">Q2</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="assignment/Q3.html">Q3</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="assignment/Q4.html">Q4</a>
+        </td>
+      </tr>
+    </table>
   </div>
-  <script src="js/index.js"></script>
 </body>
 
 </html>
