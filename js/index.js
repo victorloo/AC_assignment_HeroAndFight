@@ -19,6 +19,26 @@ class BaseCharacter {
     if (this.hp <= 0) {
       this.die();
     }
+    //增加特效和傷害數字
+    var _this = this;
+    var i = 1;
+
+    _this.id = setInterval(function () {
+      if (i == 1) {
+        _this.element.getElementsByClassName("effect-image")[0].style.display = "block";
+        _this.element.getElementsByClassName("hurt-text")[0].classList.add("attacked");
+        _this.element.getElementsByClassName("hurt-text")[0].textContent = damage;
+      }
+      _this.element.getElementsByClassName("effect-image")[0].src = 'images/effect/blade/' + i + '.png';
+      i++;
+      //取消特效和傷害數字
+      if (i > 8) {
+        _this.element.getElementsByClassName("effect-image")[0].style.display = "none";
+        _this.element.getElementsByClassName("hurt-text")[0].classList.remove("attacked");
+        _this.element.getElementsByClassName("hurt-text")[0].textContent = "";
+        clearInterval(_this.id);
+      }
+    }, 50);
   }
 
   die() {
@@ -90,7 +110,7 @@ var monster = new Monster("Skeleton", 130, 10);
 //開始戰鬥流程
 function addSkillEvent() {
   var skill = document.getElementById("skill");
-  skill.onclick = function() {
+  skill.onclick = function () {
     heroAttack();
   }
 }
@@ -110,18 +130,18 @@ function endTurn() {
 function heroAttack() {
   document.getElementsByClassName("skill-block")[0].style.display = "none";
   //英雄攻擊
-  setTimeout(function() {
+  setTimeout(function () {
     hero.element.classList.add("attacking");
-    setTimeout(function() {
+    setTimeout(function () {
       hero.attack(monster);
       hero.element.classList.remove("attacking");
     }, 500)
   }, 100);
   //怪獸攻擊
-  setTimeout(function() {
+  setTimeout(function () {
     if (monster.alive) {
       monster.element.classList.add("attacking");
-      setTimeout(function() {
+      setTimeout(function () {
         monster.attack(hero);
         monster.element.classList.remove("attacking");
         endTurn();
