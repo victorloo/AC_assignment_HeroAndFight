@@ -167,7 +167,7 @@ function heroHeal() {
         document.getElementsByClassName("skill-block")[0].style.display = "block";
       }
     }, 500);
-  }, 1100);
+  }, 600);
 }
 
 //開始戰鬥流程
